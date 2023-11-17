@@ -42,7 +42,7 @@ Provide step-by-step instructions on how to install the game.
 
 ```bash
 # Example installation commands
-git clone https://github.com/your-username/tower-defense-webgl.git
-cd tower-defense-webgl
+git clone https://github.com/your-username/Tower-defense.git
+cd Tower-Defense
 npm install
 ```
