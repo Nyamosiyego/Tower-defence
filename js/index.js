@@ -156,7 +156,7 @@ function animate() {
 
 // tracking total amount of enemies
 if (enemies.length === 0) {
-  enemyCount += 2;
+  enemyCount += 3;
   spawnEnemies(enemyCount);
 }
 
