@@ -16,7 +16,7 @@ class Enemy extends Sprite {
         y: this.position.y + this.height / 2
       }
       this.radius = 50
-      this.health = 1300
+      this.health = 130
       this.velocity = {
         x: 0,
         y: 0
@@ -34,7 +34,7 @@ class Enemy extends Sprite {
       c.fillRect(
         this.position.x,
         this.position.y - 15,
-        (this.width * this.health) / 1300,
+        (this.width * this.health) / 130,
         10
       )
     }
