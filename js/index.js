@@ -43,6 +43,7 @@ const enemies = []
 const hitSound = document.getElementById('hitSound');
 const backgroundMusic = document.getElementById('backgroundMusic');
 const deathSound = document.getElementById('deathSound');
+const gameOverSound = document.getElementById('gameOverSound');
 
 function spawnEnemies(spawnCount) {
   for (let i = 1; i < spawnCount + 1; i++) {
@@ -89,6 +90,9 @@ function animate() {
 
       if (hearts === 0) {
         console.log('game over')
+        backgroundMusic.pause();
+        gameOverSound.currentTime = 0;
+        gameOverSound.play()
         cancelAnimationFrame(animationId)
         document.querySelector('#gameOver').style.display = 'flex'
       }
