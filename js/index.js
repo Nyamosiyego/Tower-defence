@@ -44,6 +44,7 @@ const hitSound = document.getElementById('hitSound');
 const backgroundMusic = document.getElementById('backgroundMusic');
 const deathSound = document.getElementById('deathSound');
 const gameOverSound = document.getElementById('gameOverSound');
+const towerFiringSound = document.getElementById('towerFiringSound');
 
 function spawnEnemies(spawnCount) {
   for (let i = 1; i < spawnCount + 1; i++) {
@@ -136,6 +137,9 @@ function animate() {
       const projectile = building.projectiles[i]
 
       projectile.update()
+
+      // towerFiringSound.currentTime = 0;
+      // towerFiringSound.play();
 
       const xDifference = projectile.enemy.center.x - projectile.position.x
       const yDifference = projectile.enemy.center.y - projectile.position.y
