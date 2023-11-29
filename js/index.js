@@ -40,6 +40,10 @@ image.src = 'img/gameMap.png'
 
 const enemies = []
 
+const hitSound = document.getElementById('hitSound');
+const backgroundMusic = document.getElementById('backgroundMusic');
+const deathSound = document.getElementById('deathSound');
+
 function spawnEnemies(spawnCount) {
   for (let i = 1; i < spawnCount + 1; i++) {
     const xOffset = i * 150
@@ -62,6 +66,10 @@ spawnEnemies(enemyCount)
 function animate() {
   const animationId = requestAnimationFrame(animate)
 
+  if (backgroundMusic.paused) {
+    backgroundMusic.play();
+  }
+
   c.drawImage(image, 0, 0)
 
   for (let i = enemies.length - 1; i >= 0; i--) {
@@ -72,6 +80,12 @@ function animate() {
       hearts -= 1
       enemies.splice(i, 1)
       document.querySelector('#hearts').innerHTML = hearts
+
+      // Play the death sound when an enemy dies
+      deathSound.currentTime = 0;
+      deathSound.play();
+
+      enemies.splice(i, 1);
 
       if (hearts === 0) {
         console.log('game over')
@@ -125,6 +139,8 @@ function animate() {
 
       // this is when a projectile hits an enemy
       if (distance < projectile.enemy.radius + projectile.radius) {
+        hitSound.currentTime = 0; // Reset the sound to the beginning to allow overlapping plays
+        hitSound.play();
         // enemy health and enemy removal
         projectile.enemy.health -= 20
         if (projectile.enemy.health <= 0) {

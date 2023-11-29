@@ -21,6 +21,10 @@ class Enemy extends Sprite {
         x: 0,
         y: 0
       }
+      // Play marching sound when an enemy is created
+      // this.marchingSound = new Audio('sounds/marching-loop-32908.mp3');
+      // this.marchingSound.loop = true;
+      // this.marchingSound.play();
     }
   
     draw() {
