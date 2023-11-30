@@ -223,6 +223,6 @@ window.addEventListener('mousemove', (event) => {
     ) {
       activeTile = tile
       break
-    }
-  }
+}
+}
 })
